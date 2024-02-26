@@ -1,0 +1,17 @@
+{
+  "app_title": "معلومات",
+  "Nom": "الاسم",
+  "Prénom": "اللقب",
+  "Email": "البريد الإلكتروني",
+  "Téléphone": "رقم الهاتف",
+  "Confirmer": "تأكيد",
+  "EmailExist": "البريد الإلكتروني موجود بالفعل",
+  "NumberExist": "الرقم موجود بالفعل",
+  "NomRequired": "الاسم مطلوب",
+  "PrenomRequired": "اللقب مطلوب",
+  "EmailRequired": "البريد الإلكتروني مطلوب",
+  "NumberRequired": "رقم الهاتف مطلوب",
+  "FieldsRequired": "جميع الحقول مطلوبة"
+}
+
+

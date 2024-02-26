@@ -1,0 +1,15 @@
+{
+  "app_title": "Informations",
+  "Nom": "Nom",
+  "Prénom": "Prénom",
+  "Email": "Email",
+  "Téléphone": "Téléphone",
+  "Confirmer": "Confirmer",
+  "EmailExist": "L'e-mail existe déjà",
+  "NumberExist": "Le numéro existe déjà",
+  "NomRequired": "Le nom est requis",
+  "PrenomRequired": "Le prénom est requis",
+  "EmailRequired": "L'e-mail est requis",
+  "NumberRequired": "Le numéro est requis",
+  "FieldsRequired":"All fields are required"
+}

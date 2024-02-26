@@ -1,12 +1,11 @@
 import 'package:path/path.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:purair/pages/Form.dart';
-import 'package:purair/pages/Login.dart';
-import 'package:purair/pages/SignUp.dart';
 import 'package:purair/pages/Home.dart';
+import 'package:purair/pages/MultiPageForm.dart';
 import 'package:purair/pages/SplashScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:purair/pages/language_selection.dart';
 import 'classes/TranslationsDelegate.dart';
 import 'firebase_options.dart';
 
@@ -18,10 +17,13 @@ Future<void> main() async {
 
 class MyApp extends StatelessWidget {
   final routes = {
-    '/Login': (context) => Login(),
-    '/SignUp': (context) => SignUp(),
     '/home': (context) => Home(),
-    '/Form': (context) => FormFiels(),
+    '/MultiForm': (context) {
+      final args = ModalRoute.of(context)!.settings.arguments;
+      print("Received arguments: $args");
+      return MultiPageForm(languageCode: args as String);
+    },
+    '/LanguageSelection': (context) => LanguageSelection(),
   };
   @override
   Widget build(BuildContext context) {

@@ -13,7 +13,6 @@ class Home extends StatelessWidget {
               color: Colors.white),
         ),
         backgroundColor: Colors.purple,
-        // Set the app bar background color to purple
         shadowColor: Colors.purple,
 
         actions: [
@@ -32,6 +31,6 @@ class Home extends StatelessWidget {
   Future<void> _Deconnexion(BuildContext context) async {
     FirebaseAuth.instance.signOut();
     Navigator.pushNamedAndRemoveUntil(
-        context, '/Form', (route) => false);
+        context, '/MultiForm', (route) => false);
   }
 }

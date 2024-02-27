@@ -6,11 +6,16 @@ import 'package:flutter/services.dart';
 
 class LanguageTranslation {
   late Locale locale;
-  static Map<dynamic, dynamic> _localizedValues = new Map();
+  static late Map<dynamic, dynamic> _localizedValues;
 
-  LanguageTranslation(Locale locale) {
-    this.locale = locale;
-    _localizedValues = new Map();
+  LanguageTranslation(this.locale);
+
+  static Future<LanguageTranslation> load(Locale locale) async {
+    LanguageTranslation translations = LanguageTranslation(locale);
+    String jsonContent =
+    await rootBundle.loadString("assets/trans/${locale.languageCode}.json");
+    _localizedValues = json.decode(jsonContent);
+    return translations;
   }
 
   static LanguageTranslation? of(BuildContext context) {
@@ -21,14 +26,5 @@ class LanguageTranslation {
     return _localizedValues[key] ?? 'loading';
   }
 
-  static Future<LanguageTranslation> load(Locale locale) async {
-    LanguageTranslation translations = LanguageTranslation(locale);
-    String jsonContent =
-        await rootBundle.loadString("assets/trans/${locale.languageCode}.json");
-    print(jsonContent);
-    _localizedValues = json.decode(jsonContent);
-    return translations;
-  }
-
-  get currentLanguage => locale.languageCode;
+  String get currentLanguage => locale.languageCode;
 }

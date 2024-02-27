@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/services.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
 import '../classes/LanguageTranslation.dart';
 
 class MultiPageForm extends StatefulWidget {
-  final String languageCode;
 
-  const MultiPageForm({Key? key, required this.languageCode}) : super(key: key);
+
+  const MultiPageForm({Key? key}) : super(key: key);
 
   @override
   _MultiPageFormState createState() => _MultiPageFormState();
@@ -29,12 +29,14 @@ class _MultiPageFormState extends State<MultiPageForm> {
   TextEditingController txt_healthInfo = TextEditingController();
   TextEditingController txt_smokingInfo = TextEditingController();
 
+
   @override
   void initState() {
     super.initState();
-    print("Received language code in FormFiels: ${widget.languageCode}");
-    _isEnglish = widget.languageCode != 'ar'; // Set language based on language code
+    _isEnglish=true;
   }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +45,7 @@ class _MultiPageFormState extends State<MultiPageForm> {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(50.0),
         child: AppBar(
-          title: Text('BRRRRRRRRRR'),
+          title: Text(LanguageTranslation.of(context)!.value('NomRequired')),
           centerTitle: true,
         ),
       ),
@@ -79,6 +81,9 @@ class _MultiPageFormState extends State<MultiPageForm> {
   }
 
   Future<void> _submitForm() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String authToken = txt_email.text;
+    String? language =await prefs.getString('language');
     try {
       await FirebaseFirestore.instance.collection('users').add({
         'nom': txt_nom.text,
@@ -87,7 +92,11 @@ class _MultiPageFormState extends State<MultiPageForm> {
         'number': txt_number.text,
         'health_info': txt_healthInfo.text,
         'smoking_info': txt_smokingInfo.text,
+        'language':language
+
       });
+
+      await prefs.setString('authToken',authToken);
       Navigator.pushNamed(context, '/home');
       txt_nom.clear();
       txt_prenom.clear();
@@ -236,8 +245,7 @@ class _MultiPageFormState extends State<MultiPageForm> {
                       ),
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return LanguageTranslation.of(context)!.value(
-                              'NomRequired');
+                          return LanguageTranslation.of(context)!.value('NomRequired');
                         }
                         return null;
                       },

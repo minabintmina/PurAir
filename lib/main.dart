@@ -1,4 +1,4 @@
-import 'package:path/path.dart';
+
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:purair/pages/Home.dart';
 import 'package:purair/pages/MultiPageForm.dart';
@@ -6,23 +6,25 @@ import 'package:purair/pages/SplashScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:purair/pages/language_selection.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'classes/TranslationsDelegate.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  final prefs = await SharedPreferences.getInstance();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  runApp(MyApp());
+  String? authToken = prefs.getString('authToken');
+  runApp(MyApp(authToken: authToken));
 }
 
 class MyApp extends StatelessWidget {
+  final String? authToken;
+
+  MyApp({required this.authToken});
   final routes = {
     '/home': (context) => Home(),
-    '/MultiForm': (context) {
-      final args = ModalRoute.of(context)!.settings.arguments;
-      print("Received arguments: $args");
-      return MultiPageForm(languageCode: args as String);
-    },
+    '/MultiForm': (context) =>MultiPageForm(),
     '/LanguageSelection': (context) => LanguageSelection(),
   };
   @override
@@ -31,10 +33,11 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
       routes: routes,
-      localizationsDelegates: [
+      localizationsDelegates: const [
         TranslationsDelegate(), // Your custom translations delegate
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: const [
         Locale('en', ''),

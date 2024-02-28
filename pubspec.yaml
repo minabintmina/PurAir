@@ -86,17 +86,94 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
-  #
+  fonts:
+    - family: Cairo
+      fonts:
+        - asset: assets/fonts/Cairo-Black.ttf
+        - asset: assets/fonts/Cairo-Bold.ttf
+        - asset: assets/fonts/Cairo-ExtraBold.ttf
+        - asset: assets/fonts/Cairo-ExtraLight.ttf
+        - asset: assets/fonts/Cairo-Light.ttf
+        - asset: assets/fonts/Cairo-Medium.ttf
+        - asset: assets/fonts/Cairo-Regular.ttf
+        - asset: assets/fonts/Cairo-SemiBold.ttf
+        - asset: assets/fonts/Cairo-VariableFont_slnt,wght.ttf
+
+    - family: FiraSans
+      fonts:
+        - asset: assets/fonts/FiraSans-Black.ttf
+        - asset: assets/fonts/FiraSans-BlackItalic.ttf
+        - asset: assets/fonts/FiraSans-Bold.ttf
+        - asset: assets/fonts/FiraSans-BoldItalic.ttf
+        - asset: assets/fonts/FiraSans-ExtraBold.ttf
+        - asset: assets/fonts/FiraSans-ExtraBoldItalic.ttf
+        - asset: assets/fonts/FiraSans-ExtraLight.ttf
+        - asset: assets/fonts/FiraSans-ExtraLightItalic.ttf
+        - asset: assets/fonts/FiraSans-Italic.ttf
+        - asset: assets/fonts/FiraSans-Light.ttf
+        - asset: assets/fonts/FiraSans-LightItalic.ttf
+        - asset: assets/fonts/FiraSans-Medium.ttf
+        - asset: assets/fonts/FiraSans-MediumItalic.ttf
+        - asset: assets/fonts/FiraSans-Regular.ttf
+        - asset: assets/fonts/FiraSans-SemiBold.ttf
+        - asset: assets/fonts/FiraSans-SemiBoldItalic.ttf
+        - asset: assets/fonts/FiraSans-Thin.ttf
+        - asset: assets/fonts/FiraSans-ThinItalic.ttf
+
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-Black.ttf
+        - asset: assets/fonts/Roboto-BlackItalic.ttf
+        - asset: assets/fonts/Roboto-Bold.ttf
+        - asset: assets/fonts/Roboto-BoldItalic.ttf
+        - asset: assets/fonts/Roboto-Italic.ttf
+        - asset: assets/fonts/Roboto-Light.ttf
+        - asset: assets/fonts/Roboto-LightItalic.ttf
+        - asset: assets/fonts/Roboto-Medium.ttf
+        - asset: assets/fonts/Roboto-MediumItalic.ttf
+        - asset: assets/fonts/Roboto-Regular.ttf
+        - asset: assets/fonts/Roboto-Thin.ttf
+        - asset: assets/fonts/Roboto-ThinItalic.ttf
+
+    - family: RobotoCondensed
+      fonts:
+        - asset: assets/fonts/RobotoCondensed-Black.ttf
+        - asset: assets/fonts/RobotoCondensed-BlackItalic.ttf
+        - asset: assets/fonts/RobotoCondensed-Bold.ttf
+        - asset: assets/fonts/RobotoCondensed-BoldItalic.ttf
+        - asset: assets/fonts/RobotoCondensed-ExtraBold.ttf
+        - asset: assets/fonts/RobotoCondensed-ExtraBoldItalic.ttf
+        - asset: assets/fonts/RobotoCondensed-ExtraLight.ttf
+        - asset: assets/fonts/RobotoCondensed-ExtraLightItalic.ttf
+        - asset: assets/fonts/RobotoCondensed-Italic.ttf
+        - asset: assets/fonts/RobotoCondensed-Italic-VariableFont_wght.ttf
+        - asset: assets/fonts/RobotoCondensed-Light.ttf
+        - asset: assets/fonts/RobotoCondensed-LightItalic.ttf
+        - asset: assets/fonts/RobotoCondensed-Medium.ttf
+        - asset: assets/fonts/RobotoCondensed-MediumItalic.ttf
+        - asset: assets/fonts/RobotoCondensed-Regular.ttf
+        - asset: assets/fonts/RobotoCondensed-SemiBold.ttf
+        - asset: assets/fonts/RobotoCondensed-SemiBoldItalic.ttf
+        - asset: assets/fonts/RobotoCondensed-Thin.ttf
+        - asset: assets/fonts/RobotoCondensed-ThinItalic.ttf
+        - asset: assets/fonts/RobotoCondensed-VariableFont_wght.ttf
+
+    - family: RobotoSlab
+      fonts:
+        - asset: assets/fonts/RobotoSlab-Black.ttf
+        - asset: assets/fonts/RobotoSlab-Bold.ttf
+        - asset: assets/fonts/RobotoSlab-ExtraBold.ttf
+        - asset: assets/fonts/RobotoSlab-ExtraLight.ttf
+        - asset: assets/fonts/RobotoSlab-Light.ttf
+        - asset: assets/fonts/RobotoSlab-Medium.ttf
+        - asset: assets/fonts/RobotoSlab-Regular.ttf
+        - asset: assets/fonts/RobotoSlab-SemiBold.ttf
+        - asset: assets/fonts/RobotoSlab-Thin.ttf
+        - asset: assets/fonts/RobotoSlab-VariableFont_wght.ttf
+
+    - family: Anta
+      fonts:
+        - asset: assets/fonts/Anta-Regular.ttf
+
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

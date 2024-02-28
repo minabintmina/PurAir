@@ -1,7 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:purair/pages/Terms.dart';
 import 'package:purair/pages/language_selection.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'Home.dart';
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -13,10 +17,20 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 5), () {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => LanguageSelection()),
-      );
+    Timer(const Duration(seconds: 5), () async {
+      final prefs = await SharedPreferences.getInstance();
+      String? authToken = prefs.getString('authToken');
+      if (authToken != null) {
+        // If authToken is available, navigate to HomePage
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => Home()),
+        );
+      } else {
+        // If authToken is not available, navigate to LanguageSelection
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => LanguageSelection()),
+        );
+      }
     });
   }
 
